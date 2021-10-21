@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Business_Programming_Project\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-      "projectName": "WebApplication1",
-      "projectPath": "E:\\Business_Programming_Project\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "E:\\Business_Programming_Project\\Project_Business\\Project_Business\\Project_Business.csproj",
+      "projectName": "Project_Business",
+      "projectPath": "E:\\Business_Programming_Project\\Project_Business\\Project_Business\\Project_Business.csproj",
       "packagesPath": "C:\\Users\\Nonrapak\\.nuget\\packages\\",
-      "outputPath": "E:\\Business_Programming_Project\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "E:\\Business_Programming_Project\\Project_Business\\Project_Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nonrapak\\AppData\\Roaming\\NuGet\\NuGet.Config",
