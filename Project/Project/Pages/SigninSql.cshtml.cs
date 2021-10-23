@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Project.Pages.Shared
+namespace Project.Pages
 {
-    public class LoginSqlModel : PageModel
+    public class SigninSqlModel : PageModel
     {
         public void OnGet()
         {

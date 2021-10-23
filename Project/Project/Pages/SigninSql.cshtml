@@ -1,0 +1,43 @@
+﻿@page
+@model Project.Pages.SigninSqlModel
+@using MySql.Data.MySqlClient;
+@using System.Data;
+@{
+    var username_login = Request.Form["username-login"];
+    var pass_login = Request.Form["pass-login"];
+    var email_login = Request.Form["email-login"];
+
+    MySqlConnection conn;
+    string server = "localhost";
+    string database = "Reservation_Room";
+    string uid = "root";
+    string password = "12345678";
+    string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+    database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+    conn = new MySqlConnection(connectionString);
+    try
+    {
+        conn.Open();
+        <p>ติดต่อฐานข้อมูล</p>
+    }
+    catch (Exception ex)
+    {
+        <p>ติดต่อฐานข้อมูลไม่ได้!!!</p>
+    }
+    try
+    {
+        string sqlCmd = "INSERT Sign_In VALUES (@username,@pass,@email)";
+
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+        cmd.Parameters.AddWithValue("@username", username_login);
+        cmd.Parameters.AddWithValue("@pass", pass_login);
+        cmd.Parameters.AddWithValue("@email", email_login);
+
+        cmd.ExecuteNonQuery();
+    }
+    catch (Exception ex)
+    {
+        <p>Error : @ex.Message</p>
+        }
+    }
+
