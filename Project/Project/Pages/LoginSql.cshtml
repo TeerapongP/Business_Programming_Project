@@ -3,8 +3,8 @@
 @using MySql.Data.MySqlClient;
 @using System.Data;
 @{
-    var username_login = Request.Form["username-login"];
-    var pass_login = Request.Form["pass-login"];
+    var email_login = Request.Form["email_login"];
+    var pass_login = Request.Form["pass_login"];
 
     MySqlConnection conn;
     string server = "localhost";
@@ -16,29 +16,38 @@
     conn = new MySqlConnection(connectionString);
     try
     {
-        conn.Open();
-        <p>ติดต่อฐานข้อมูล</p>
+
     }
     catch (Exception ex)
     {
         <p>ติดต่อฐานข้อมูลไม่ได้!!!</p>
     }
-
-    string sqlCmd = "SELECT * FROM login_signIn where username='" + username_login + "' AND pass='" + pass_login + "'";
-    MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
-    MySqlDataReader dataReader = cmd.ExecuteReader();
-
-    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-    DataTable dt = new DataTable();
-    da.Fill(dt);
-
-    if (dt.Rows.Count > 0)
+    try
     {
-        Response.Redirect("https://www.google.co.th/");
+        conn.Open();
+        String sqlCmd = "SELECT * FROM sign_in where email='" + email_login + "' AND pass='" + pass_login + "'";
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+        MySqlDataReader dataReader = cmd.ExecuteReader();
+
+        if (dataReader.Read())
+        {
+            <script>
+                alert("Login Sucess......!!");
+                window.setTimeout(function () { window.location.href = "./Home" });
+            </script>
+        }
+        else
+        {
+            <script>
+                alert("UserId & Password Is not correct Try again..!!");
+                window.setTimeout(function () { window.location.href = "./Index" });
+            </script>
+        }
+        conn.Close();
+
     }
-    else
+    catch (Exception ex)
     {
-        <p>Sorry, wrong username.</p>
+        <p>Error : @ex.Message</p>
     }
-    conn.Close();
 }

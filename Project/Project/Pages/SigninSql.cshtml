@@ -1,15 +1,14 @@
 ﻿@page
 @model Project.Pages.SigninSqlModel
 @using MySql.Data.MySqlClient;
-@using System.Data;
 @{
-    var username_login = Request.Form["username-login"];
-    var pass_login = Request.Form["pass-login"];
-    var email_login = Request.Form["email-login"];
+    var email_login = Request.Form["email_login"];
+    var pass_login = Request.Form["pass_login"];
+
 
     MySqlConnection conn;
     string server = "localhost";
-    string database = "Reservation_Room";
+    string database = "reservation_room";
     string uid = "root";
     string password = "12345678";
     string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
@@ -18,26 +17,25 @@
     try
     {
         conn.Open();
-        <p>ติดต่อฐานข้อมูล</p>
+
     }
     catch (Exception ex)
     {
         <p>ติดต่อฐานข้อมูลไม่ได้!!!</p>
     }
-    try
-    {
-        string sqlCmd = "INSERT Sign_In VALUES (@username,@pass,@email)";
 
-        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
-        cmd.Parameters.AddWithValue("@username", username_login);
-        cmd.Parameters.AddWithValue("@pass", pass_login);
-        cmd.Parameters.AddWithValue("@email", email_login);
+    string sqlCmd = "INSERT sign_in VALUES (@email,@pass)";
 
-        cmd.ExecuteNonQuery();
-    }
-    catch (Exception ex)
-    {
-        <p>Error : @ex.Message</p>
-        }
-    }
+    MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+
+    cmd.Parameters.AddWithValue("@email", email_login);
+    cmd.Parameters.AddWithValue("@pass", pass_login);
+
+    cmd.ExecuteNonQuery();
+      <script>
+         alert("Please complete the information.");
+         window.setTimeout(function () { window.location.href = "./Home" });
+      </script>
+}
+
 

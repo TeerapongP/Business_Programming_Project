@@ -7,8 +7,6 @@ E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.RazorAssemblyInfo.cache
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.RazorAssemblyInfo.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\staticwebassets\Project.StaticWebAssets.Manifest.cache
-E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\staticwebassets\Project.StaticWebAssets.xml
-E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project.styles.css
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.TagHelpers.input.cache
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.TagHelpers.output.cache
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Project.RazorCoreGenerate.cache
@@ -50,3 +48,7 @@ E:\Business_Programming_Project\Project\Project\bin\Debug\netcoreapp3.1\System.S
 E:\Business_Programming_Project\Project\Project\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\LoginSql.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\SignIn.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\Home.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\SigninSql.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\staticwebassets\Project.StaticWebAssets.xml
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project.styles.css
