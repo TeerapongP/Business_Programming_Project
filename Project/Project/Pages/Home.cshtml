@@ -1,33 +1,45 @@
 ﻿@page
 @model Project.Pages.HomeModel
-    <body class="bg-dark">
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="/picture/245136179_6010329225688945_2134224720753800566_n.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <input class="btn btn-outline-primary btn-lg btn-block" type="submit" value="จองหอพัก" />
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="/picture/245136179_6010329225688945_2134224720753800566_n.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="จองหอพัก" />
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="/picture/245136179_6010329225688945_2134224720753800566_n.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <input class="btn btn-outline-success btn-lg btn-block" type="submit" value="จองหอพัก" />
-                </div>
+<body class="bg-dark">
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="/picture/1_Home.png">
+            <div class="card-body">
+                <h4 class="card-title">Normal room</h4>
+                <p class="card-text"> Normal room price 1,000 Baht/Night </p>
+                <p class="card-text"> Free Wi-Fi</p>
+                <p class="card-text"> Size: 30 Square meter </p>
+                <p class="card-text"> Maximum guests : 3 adults </p>
+                <p class="card-text"> Bed Type : Queen Sized Bed </p>
+                <form action="./reservation_normalroom">
+                    <input class="btn btn-outline-primary btn-lg btn-block" type="submit" value="Reservation Room" />
+                </form>
             </div>
         </div>
-    </body>
+        <div class="card">
+            <img class="card-img-top" src="/picture/2_Home.png">
+            <div class="card-body">
+                <h4 class="card-title">Sweet room</h4>
+                <p class="card-text"> Sweet room price 1,700 Baht/Night </p>
+                <p class="card-text"> Free Wi-Fi</p>
+                <p class="card-text"> Size: 40 Square meter </p>
+                <p class="card-text"> Maximum guests : 3 Adult </p>
+                <p class="card-text"> Bed type : King size bed </p>
+                <input class="btn btn-outline-danger btn-lg btn-block" type="submit" value="Reservation Room " />
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/picture/3_Home.png">
+            <div class="card-body">
+                <h4 class="card-title">Suite room</h4>
+                <p class="card-text"> Suite room price 2,300 Baht/Night </p>
+                <p class="card-text"> Free Wi-Fi</p>
+                <p class="card-text"> Size 59 Square meter</p>
+                <p class="card-text"> Maximum guests : 3 Adult </p>
+                <p class="card-text"> Bed type : King size bed </p>
+                <input class="btn btn-outline-success btn-lg btn-block" type="submit" value="Reservation Room " />
+            </div>
+        </div>
+    </div>
+    
+</body>
