@@ -53,3 +53,5 @@ E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pa
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\staticwebassets\Project.StaticWebAssets.xml
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\scopedcss\bundle\Project.styles.css
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\reservation_normalroom.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\reservation_sweetroom.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\reservation_suiteroom.cshtml.g.cs
