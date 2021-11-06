@@ -1,0 +1,46 @@
+﻿@page
+@model Project.Pages.informations_sweet_SqlModel
+@using MySql.Data.MySqlClient;
+@{
+    var name_lastName = Request.Form["name_lastName"];
+    var idcard = Request.Form["idcard"];
+    var phone_number = Request.Form["phone_number"];
+    var blood_type = Request.Form["blood_type"];
+    var congenital_disease = Request.Form["congenital_disease"];
+    var booking_date = Request.Form["booking_date"];
+    var address_user = Request.Form["address_user"];
+
+    MySqlConnection conn;
+    string server = "localhost";
+    string database = "reservation_room";
+    string uid = "root";
+    string password = "12345678";
+    string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+    database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+    conn = new MySqlConnection(connectionString);
+    try
+    {
+        conn.Open();
+
+    }
+    catch (Exception ex)
+    {
+        <p>ติดต่อฐานข้อมูลไม่ได้!!!</p>
+    }
+
+    string sqlCmd = "INSERT sweet_information VALUES (@name_lastname,@ID_card_code,@telephone_number,@blood_type,@congenital_disease,@lease,@current_address)";
+
+    MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+
+    cmd.Parameters.AddWithValue("@name_lastname", name_lastName);
+    cmd.Parameters.AddWithValue("@ID_card_code", idcard);
+    cmd.Parameters.AddWithValue("@telephone_number", phone_number);
+    cmd.Parameters.AddWithValue("@blood_type", blood_type);
+    cmd.Parameters.AddWithValue("@congenital_disease", congenital_disease);
+    cmd.Parameters.AddWithValue("@lease", booking_date);
+    cmd.Parameters.AddWithValue("@current_address", address_user);
+    cmd.ExecuteNonQuery();
+    <script>
+        window.setTimeout(function () { window.location.href = "./Home" });
+    </script>
+}

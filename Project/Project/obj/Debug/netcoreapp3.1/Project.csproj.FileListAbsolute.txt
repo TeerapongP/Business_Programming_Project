@@ -55,3 +55,9 @@ E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\scopedcs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\reservation_normalroom.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\reservation_sweetroom.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\reservation_suiteroom.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\informations_normal.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\informations_normal_Sql.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\informations_sweet_Sql.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\information_sweet.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\information_suit.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\information_suit_Sql.cshtml.g.cs

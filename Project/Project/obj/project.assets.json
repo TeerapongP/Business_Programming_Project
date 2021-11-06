@@ -849,7 +849,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nonrapak\\.nuget\\packages\\": {}
+    "C:\\Users\\NonrapakPc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -857,11 +857,11 @@
       "projectUniqueName": "E:\\Business_Programming_Project\\Project\\Project\\Project.csproj",
       "projectName": "Project",
       "projectPath": "E:\\Business_Programming_Project\\Project\\Project\\Project.csproj",
-      "packagesPath": "C:\\Users\\Nonrapak\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\NonrapakPc\\.nuget\\packages\\",
       "outputPath": "E:\\Business_Programming_Project\\Project\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nonrapak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NonrapakPc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
