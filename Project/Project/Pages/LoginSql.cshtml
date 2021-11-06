@@ -22,6 +22,7 @@
     {
         <p>ติดต่อฐานข้อมูลไม่ได้!!!</p>
     }
+
     try
     {
         conn.Open();
@@ -29,12 +30,21 @@
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         MySqlDataReader dataReader = cmd.ExecuteReader();
 
-        if (dataReader.Read())
+        if (dataReader.HasRows)
         {
-            <script>
-                alert("Login Sucess......!!");
-                window.setTimeout(function () { window.location.href = "./Home" });
-            </script>
+            dataReader.Read();
+            if (dataReader[0].ToString().Equals("admin"))
+            {
+                <script>
+                    window.setTimeout(function () { window.location.href = "./admin" });
+                </script>
+            }
+            else
+            {
+                <script>
+                    window.setTimeout(function () { window.location.href = "./Home" });
+                </script>
+            }
         }
         else
         {
@@ -43,6 +53,7 @@
                 window.setTimeout(function () { window.location.href = "./Index" });
             </script>
         }
+
         conn.Close();
 
     }

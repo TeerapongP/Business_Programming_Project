@@ -61,3 +61,5 @@ E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pa
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\information_sweet.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\information_suit.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\information_suit_Sql.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\admin.cshtml.g.cs
