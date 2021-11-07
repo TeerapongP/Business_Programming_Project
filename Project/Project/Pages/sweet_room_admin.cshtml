@@ -1,0 +1,37 @@
+﻿@page
+@model Project.Pages.sweet_roomModel
+    <body class="bg-dark">
+        <header>
+            <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container float-left">
+                    <a class="navbar-brand ">
+                        <img src="/picture/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                        Gloucester Hotel
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/normal_admin">Normal Room</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/sweet_room_admin">Sweet Room</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/suit_room_admin">Suit Room</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="float-right">
+                    <form class="form-inline ">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search Name" aria-label="Search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search </button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    </body>
