@@ -66,4 +66,5 @@ E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pa
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\normal_admin.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\suit_room_admin.cshtml.g.cs
 E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\sweet_room_admin.cshtml.g.cs
-E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\actions.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\obj\Debug\netcoreapp3.1\Razor\Pages\normal_action.cshtml.g.cs
+E:\Business_Programming_Project\Project\Project\bin\Debug\netcoreapp3.1\libman.json

@@ -1,0 +1,135 @@
+﻿@page
+@model Project.Pages.normal_actionModel
+@using MySql.Data.MySqlClient;
+@using System.Data;
+@using Newtonsoft.Json
+@{
+    Layout = null;
+    var customer_name = "";
+    var action = "";
+    var id = "";//customerID
+    var name_lastname = "";
+    var ID_card_code = "";
+    var telephone_number = "";
+    var blood_type = "";
+    var congenital_disease = "";
+    var lease = "";
+    var current_address = "";
+    var countryUserForm = "";
+
+    if (Request.Method == "POST")
+    {
+        customer_name = Request.Form["customers_name"];
+        action = Request.Form["action"];
+        id = Request.Form["id"];
+
+        name_lastname = Request.Form["name_lastname"];
+        ID_card_code = Request.Form["id_card"];
+        telephone_number = Request.Form["telephone_number"];
+        blood_type = Request.Form["blood_type"];
+        congenital_disease = Request.Form["congenitals_disease"];
+        lease = Request.Form["lease_"];
+        current_address = Request.Form["current_address_"];
+        countryUserForm = Request.Form["customercountry"];
+    }
+
+    //Request.Form ดึงข้อมูลผ่านการ POST
+    MySqlConnection conn;
+    string server = "localhost";
+    string database = "reservation_room";
+    string uid = "root";
+    string password = "12345678";
+    string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+    database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";SSL Mode=None;";
+    conn = new MySqlConnection(connectionString);
+    try
+    {
+        conn.Open();
+    }
+    catch (Exception ex)
+    {
+        <p>ติดต่อฐานข้อมูลไม่สำเร็จ !!! @ex.Message</p>
+    }
+
+    var result = "{}";
+    if (action == "select")
+    {
+        string sqlCmd = "SELECT * FROM normal_information WHERE name_lastname = @name_lastname";
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+        cmd.Parameters.AddWithValue("@name_lastname", customer_name);
+        MySqlDataReader reader = cmd.ExecuteReader();
+        //ใน razor page จะใช้ DataTable ต้อง @using System.Data;
+        var dataTable = new DataTable();
+        //load ข้อมูลจาก MySqlDataReader ไปที่ dataTable
+        dataTable.Load(reader);
+        //@using Newtonsoft.Json เพื่อใช้ JsonConver
+        string json_string = JsonConvert.SerializeObject(dataTable);
+        result = json_string;
+    }
+
+    if (action == "delete")
+    {
+        string sqlCmd = "DELETE FROM normal_information WHERE name_lastname = @id";
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+        cmd.Parameters.AddWithValue("@id", id);
+        cmd.ExecuteNonQuery();
+        <p>Data Deleted</p>
+    }
+
+
+    if (action == "insert")
+    {
+        string sqlCmd = "INSERT normal_information VALUES (@name_lastname,@ID_card_code,@telephone_number,@blood_type,@congenital_disease,@lease,@current_address)";
+
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+
+        cmd.Parameters.AddWithValue("@name_lastname", name_lastname);
+        cmd.Parameters.AddWithValue("@ID_card_code", ID_card_code);
+        cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
+        cmd.Parameters.AddWithValue("@blood_type", blood_type);
+        cmd.Parameters.AddWithValue("@congenital_disease", congenital_disease);
+        cmd.Parameters.AddWithValue("@lease", lease);
+
+        cmd.Parameters.AddWithValue("@current_address", countryUserForm);
+        cmd.ExecuteNonQuery();
+        <p>Data INSERTED</p>
+
+    }
+
+    if (action == "update")
+    {
+        string sqlCmd = "UPDATE normal_information  "
+                      + " id_card = @id_card, "
+                      + " telephone_number = @telephone_number, "
+                      + " blood_type = @blood_type, "
+                      + " lease_ = @lease_, "
+                      + " current_address_= @current_address_ "
+                      + " WHERE name_lastname = @name_lastname";
+
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+        cmd.Parameters.AddWithValue("@id_card", ID_card_code);
+        cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
+        cmd.Parameters.AddWithValue("@blood_type", blood_type);
+        cmd.Parameters.AddWithValue("@lease_", lease);
+        cmd.Parameters.AddWithValue("@current_address_", current_address);
+        cmd.Parameters.AddWithValue("@name_lastname", countryUserForm);
+        cmd.ExecuteNonQuery();
+        <p>Data UPDATE</p>
+    }
+
+    if (action == "fetch_single")
+    {
+        string sqlCmd = "SELECT * FROM normal_information WHERE name_lastname = @name_lastname";
+        MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
+        cmd.Parameters.AddWithValue("@name_lastname", id);
+        MySqlDataReader reader = cmd.ExecuteReader();
+        //ใน razor page จะใช้ DataTable ต้อง @using System.Data;
+        var dataTable = new DataTable();
+        //load ข้อมูลจาก MySqlDataReader ไปที่ dataTable
+        dataTable.Load(reader);
+        //@using Newtonsoft.Json เพื่อใช้ JsonConver
+        string json_string = JsonConvert.SerializeObject(dataTable);
+        result = json_string;
+    }
+}
+@Html.Raw(result)
