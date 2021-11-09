@@ -1,5 +1,5 @@
 ﻿@page
-@model Project.Pages.normal_actionModel
+@model Project.Pages.suit_actionsModel
 @using MySql.Data.MySqlClient;
 @using System.Data;
 @using Newtonsoft.Json
@@ -54,7 +54,7 @@
     var result = "{}";
     if (action == "select")
     {
-        string sqlCmd = "SELECT * FROM normal_information WHERE name_lastname = @name_lastname";
+        string sqlCmd = "SELECT * FROM suit_information WHERE name_lastname = @name_lastname";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@name_lastname", name_customers);
         MySqlDataReader reader = cmd.ExecuteReader();
@@ -69,7 +69,7 @@
 
     if (action == "delete")
     {
-        string sqlCmd = "DELETE FROM normal_information WHERE name_lastname = @id";
+        string sqlCmd = "DELETE FROM suit_information WHERE name_lastname = @id";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@id", id);
         cmd.ExecuteNonQuery();
@@ -79,7 +79,7 @@
 
     if (action == "insert")
     {
-        string sqlCmd = "INSERT INTO normal_information VALUES " +
+        string sqlCmd = "INSERT INTO suit_information VALUES " +
                            "(@customerName, @idcard, @TelNumber, @bloodType, @disease, @lease, @address)";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@customerName", customers_name);
@@ -96,7 +96,7 @@
 
     if (action == "update")
     {
-        string sqlCmd = "UPDATE normal_information  "
+        string sqlCmd = "UPDATE suit_information  "
                       + "      SET name_lastname = @customerName, "
                       + "           ID_card_code = @idcard, "
                       + "       telephone_number = @TelNumber, "
@@ -119,7 +119,7 @@
 
     if (action == "fetch_single")
     {
-        string sqlCmd = "SELECT * FROM normal_information WHERE name_lastname = @name_lastname";
+        string sqlCmd = "SELECT * FROM suit_information WHERE name_lastname = @name_lastname";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@name_lastname", id);
         MySqlDataReader reader = cmd.ExecuteReader();
