@@ -91,13 +91,14 @@
                 data: { id: id, action: action },
                 dataType: "json",
                 success: function (data) {
-                    $('#names_customer').val(data[0].name_lastname);
-                    $('#id_card').val(data[0].ID_card_code);
-                    $('#telephone_number').val(data[0].telephone_number);
-                    $('#blood_type').val(data[0].blood_type);
-                    $('#congenitals_disease').val(data[0].congenital_disease);
-                    $('#lease_').val(data[0].lease);
-                    $('#current_address_').val(data[0].current_address);
+                    $('#names_customer').val(data[0].CustomerName);
+                    $('#lastname_customer').val(data[0].CustomerLastName);
+                    $('#id_card').val(data[0].CustomerIDCard);
+                    $('#telephone_number').val(data[0].CustomerPhoneNumber);
+                    $('#current_address_').val(data[0].CustomerAddress);
+                    $('#blood_type').val(data[0].CustomerBloodType);
+                    $('#congenitals_disease').val(data[0].CongenitalDisease);
+                    $('#lease_').val(data[0].BookingDate);
                 },
                 error: function (jqXHR, text, errorThrown) {
                     console.log(jqXHR.responseText);
@@ -169,7 +170,7 @@
         return table;
     }
 
-    customercountry
+
     function searchCustomers() {
         var customer_name = $("#customer_name").val();
         //ส่ง input ชื่อ customer_country โดยมีค่าเท่ากับ ตัวแปร country
@@ -196,91 +197,95 @@
 
 
     }
-    </script>
+</script>
+
 <div id="user_dialog" title="Add Data">
-        <form method="post" id="user_form">
-            <div class="form-group">
-                <label>Enter Customer name</label>
-                <input type="text" name="names_customer" id="names_customer" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Enter ID Card </label>
-                <input type="text" name="id_card" id="id_card" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Enter Phone Number</label>
-                <input type="text" name="telephone_number" id="telephone_number" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Enter Blood Type</label>
-                <input type="text" name="blood_type" id="blood_type" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Enter Congenitals Disease</label>
-                <input type="text" name="congenitals_disease" id="congenitals_disease" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Enter Date</label>
-                <input type="date" name="lease_" id="lease_" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Enter Current Address</label>
-                <input type="text" name="current_address_" id="current_address_" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <input type="hidden" name="action" id="action" value="insert" />
-                <input type="hidden" name="hidden_id" id="hidden_id" />
-                <input type="submit" name="form_action" id="form_action" class="btn btn-info" value="Insert" />
-            </div>
-        </form>
-    </div>
-<div id="delete_confirmation" title="Confirmation">
-        <p>Are you sure you want to Delete this data?</p>
-    </div>
- <br />
-<body class="bg-dark">
-        <header>
-            <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container float-left">
-                    <a class="navbar-brand ">
-                        <img src="/picture/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                        Gloucester Hotel
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/normal_admin">Normal Room</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/sweet_room_admin">Sweet Room</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/suit_room_admin">Suit Room</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <form class="form-inline">
-                    @Html.AntiForgeryToken()
-                    <input type="text" id="customer_name" name="customer_name" value="" class="form-control mr-sm-2" placeholder="Search Name">
-                    <button type="button" onclick="searchCustomers()" class="btn btn-outline-primary my-2 my-sm-0">Search</button> &nbsp;
-                    <button type="button" name="add" id="add" class="btn btn-outline-info">Add</button>
-                </form>
-            </nav>
-        </header>
-        <br /><br />
-        <div class="bg-light">
-            <p id="result"></p>
+    <form method="post" id="user_form">
+        <div class="form-group">
+            <label>Enter Customer name</label>
+            <input type="text" name="names_customer" id="names_customer" class="form-control" />
         </div>
-    </body>    
+        <div class="form-group">
+            <label>Enter Customer lastname</label>
+            <input type="text" name="lastname_customer" id="lastname_customer" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Enter ID Card </label>
+            <input type="text" name="id_card" id="id_card" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Enter Phone Number</label>
+            <input type="text" name="telephone_number" id="telephone_number" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Enter Current Address</label>
+            <input type="text" name="current_address_" id="current_address_" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Enter Blood Type</label>
+            <input type="text" name="blood_type" id="blood_type" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Enter Congenitals Disease</label>
+            <input type="text" name="congenitals_disease" id="congenitals_disease" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Enter Date</label>
+            <input type="date" name="lease_" id="lease_" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" name="action" id="action" value="insert" />
+            <input type="hidden" name="hidden_id" id="hidden_id" />
+            <input type="submit" name="form_action" id="form_action" class="btn btn-info" value="Insert" />
+        </div>
+    </form>
+</div>
+<div id="delete_confirmation" title="Confirmation">
+    <p>Are you sure you want to Delete this data?</p>
+</div>
+<br />
+<body class="bg-dark">
+    <header>
+        <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container float-left">
+                <a class="navbar-brand ">
+                    <img src="/picture/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Gloucester Hotel
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/normal_admin">Normal Room</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/sweet_room_admin">Sweet Room</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/suit_room_admin">Suit Room</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <form class="form-inline">
+                @Html.AntiForgeryToken()
+                <input type="text" id="customer_name" name="customer_name" value="" class="form-control mr-sm-2" placeholder="Search Name">
+                <button type="button" onclick="searchCustomers()" class="btn btn-outline-success my-2 my-sm-0">Search</button> &nbsp;
+                <button type="button" name="add" id="add" class="btn btn-success btn-xs">Add</button>
+            </form>
+        </nav>
+    </header>
+</body>
+<br />
+<br />
+<p style="color:white;" id="result"></p>

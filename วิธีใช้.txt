@@ -1,0 +1,2 @@
+สร้าง Database ชื่อ reservation_room
+แล้ว import ไฟล์ reservation_room.sql เข้าถึงจะใช้โปรเเกรมได้

@@ -2,7 +2,8 @@
 @model Project.Pages.information_suit_SqlModel
 @using MySql.Data.MySqlClient;
 @{
-    var name_lastName = Request.Form["name_lastName"];
+    var name_ = Request.Form["name_"];
+    var lastName = Request.Form["lastName"];
     var idcard = Request.Form["idcard"];
     var phone_number = Request.Form["phone_number"];
     var blood_type = Request.Form["blood_type"];
@@ -28,17 +29,19 @@
         <p>ติดต่อฐานข้อมูลไม่ได้!!!</p>
     }
 
-    string sqlCmd = "INSERT suit_information VALUES (@name_lastname,@ID_card_code,@telephone_number,@blood_type,@congenital_disease,@lease,@current_address)";
+    string sqlCmd = "INSERT suit_informations VALUES (@name_,@lastname,@ID_card_code,@telephone_number,@current_address,@blood_type,@congenital_disease,@lease)";
 
     MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
 
-    cmd.Parameters.AddWithValue("@name_lastname", name_lastName);
+    cmd.Parameters.AddWithValue("@name_", name_);
+    cmd.Parameters.AddWithValue("@lastname", lastName);
     cmd.Parameters.AddWithValue("@ID_card_code", idcard);
     cmd.Parameters.AddWithValue("@telephone_number", phone_number);
+    cmd.Parameters.AddWithValue("@current_address", address_user);
     cmd.Parameters.AddWithValue("@blood_type", blood_type);
     cmd.Parameters.AddWithValue("@congenital_disease", congenital_disease);
     cmd.Parameters.AddWithValue("@lease", booking_date);
-    cmd.Parameters.AddWithValue("@current_address", address_user);
+
     cmd.ExecuteNonQuery();
     <script>
         window.setTimeout(function () { window.location.href = "./Home" });

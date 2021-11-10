@@ -11,12 +11,17 @@
         @Html.AntiForgeryToken()
 
         <div class="form-group row">
-            <div class="col-xl-10">
-                <span class="text-light"> Name - Lastname</span>
-                <input type="text" id="name_lastName" name="name_lastName" class="form-control"
+            <div class="col-xl-4">
+                <span class="text-light">Name</span>
+                <input type="text" id="name_" name="name_" class="form-control"
                        required>
             </div><br />
             <div class="col-xl-4">
+                <span class="text-light">Lastname</span>
+                <input type="text" id="lastName" name="lastName" class="form-control"
+                       required>
+            </div><br />
+            <div class="col-xl-5">
                 <br />
                 <span class="text-light"> ID Card - Number</span>
                 <input type="text" id="idcard" name="idcard" class="form-control"
@@ -54,7 +59,6 @@
                     Booking date
                 </span>
                 <input type="date" id="booking_date" name="booking_date" class="form-control"
-                       value="1997-01-01"
                        min="1997-01-01" max="2030-12-31" required>
             </div><br />
         </div>

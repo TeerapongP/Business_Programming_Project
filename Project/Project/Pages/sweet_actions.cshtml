@@ -11,6 +11,7 @@
     var id = "";//customerID
 
     var customers_name = "";
+    var customers_lastname = "";
     var id_card_ = "";
     var tel_number = "";
     var blood_types = "";
@@ -25,12 +26,14 @@
         id = Request.Form["id"];
 
         customers_name = Request.Form["names_customer"];
+        customers_lastname = Request.Form["lastname_customer"];
         id_card_ = Request.Form["id_card"];
         tel_number = Request.Form["telephone_number"];
+        address_ = Request.Form["current_address_"];
         blood_types = Request.Form["blood_type"];
         disease = Request.Form["congenitals_disease"];
         lease_ = Request.Form["lease_"];
-        address_ = Request.Form["current_address_"];
+
     }
 
     //Request.Form ดึงข้อมูลผ่านการ POST
@@ -54,7 +57,7 @@
     var result = "{}";
     if (action == "select")
     {
-        string sqlCmd = "SELECT * FROM sweet_information WHERE name_lastname = @name_lastname";
+        string sqlCmd = "SELECT * FROM sweet_informations WHERE CustomerName = @name_lastname";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@name_lastname", name_customers);
         MySqlDataReader reader = cmd.ExecuteReader();
@@ -69,7 +72,7 @@
 
     if (action == "delete")
     {
-        string sqlCmd = "DELETE FROM sweet_information WHERE name_lastname = @id";
+        string sqlCmd = "DELETE FROM sweet_informations WHERE CustomerName = @id";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@id", id);
         cmd.ExecuteNonQuery();
@@ -79,16 +82,19 @@
 
     if (action == "insert")
     {
-        string sqlCmd = "INSERT INTO sweet_information VALUES " +
-                           "(@customerName, @idcard, @TelNumber, @bloodType, @disease, @lease, @address)";
+        string sqlCmd = "INSERT sweet_informations VALUES (@name_,@lastname,@ID_card_code,@telephone_number,@current_address,@blood_type,@congenital_disease,@lease)";
+
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
-        cmd.Parameters.AddWithValue("@customerName", customers_name);
-        cmd.Parameters.AddWithValue("@idcard", id_card_);
-        cmd.Parameters.AddWithValue("@TelNumber", tel_number);
-        cmd.Parameters.AddWithValue("@bloodType", blood_types);
-        cmd.Parameters.AddWithValue("@disease", disease);
+
+        cmd.Parameters.AddWithValue("@name_", customers_name);
+        cmd.Parameters.AddWithValue("@lastname", customers_lastname);
+        cmd.Parameters.AddWithValue("@ID_card_code", id_card_);
+        cmd.Parameters.AddWithValue("@telephone_number", tel_number);
+        cmd.Parameters.AddWithValue("@current_address", address_);
+        cmd.Parameters.AddWithValue("@blood_type", blood_types);
+        cmd.Parameters.AddWithValue("@congenital_disease", disease);
         cmd.Parameters.AddWithValue("@lease", lease_);
-        cmd.Parameters.AddWithValue("@address", address_);
+
         cmd.ExecuteNonQuery();
         <p>Data INSERTED</p>
 
@@ -96,30 +102,32 @@
 
     if (action == "update")
     {
-        string sqlCmd = "UPDATE sweet_information  "
-                      + "      SET name_lastname = @customerName, "
-                      + "           ID_card_code = @idcard, "
-                      + "       telephone_number = @TelNumber, "
-                      + "             blood_type = @bloodType, "
-                      + "     congenital_disease = @disease, "
-                      + "                  lease = @lease "
-                      + "  WHERE current_address = @address";
+        string sqlCmd = "UPDATE sweet_informations  "
+                      + "       SET CustomerName = @customerName, "
+                      + "       CustomerLastName = @lastname, "
+                      + "         CustomerIDCard = @idcard, "
+                      + "    CustomerPhoneNumber = @TelNumber, "
+                      + "        CustomerAddress = @address, "
+                      + "      CustomerBloodType = @bloodType, "
+                      + "      CongenitalDisease = @disease "
+                      + "      WHERE BookingDate = @lease ";
 
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@customerName", customers_name);
+        cmd.Parameters.AddWithValue("@lastname", customers_lastname);
         cmd.Parameters.AddWithValue("@idcard", id_card_);
         cmd.Parameters.AddWithValue("@TelNumber", tel_number);
+        cmd.Parameters.AddWithValue("@address", address_);
         cmd.Parameters.AddWithValue("@bloodType", blood_types);
         cmd.Parameters.AddWithValue("@disease", disease);
         cmd.Parameters.AddWithValue("@lease", lease_);
-        cmd.Parameters.AddWithValue("@address", address_);
         cmd.ExecuteNonQuery();
         <p>Data UPDATE</p>
     }
 
     if (action == "fetch_single")
     {
-        string sqlCmd = "SELECT * FROM sweet_information WHERE name_lastname = @name_lastname";
+        string sqlCmd = "SELECT * FROM sweet_informations WHERE CustomerName = @name_lastname";
         MySqlCommand cmd = new MySqlCommand(sqlCmd, conn);
         cmd.Parameters.AddWithValue("@name_lastname", id);
         MySqlDataReader reader = cmd.ExecuteReader();
