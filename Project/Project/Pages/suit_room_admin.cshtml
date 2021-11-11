@@ -11,7 +11,7 @@
         //$('#add').click( : อ่านว่า เพิ่ม event การกด click ให้กับ html element ที่มี id คือ add
         $('#add').click(function () {
             //กำหนดให้เป็นการ insert
-            $('#user_dialog').attr('title', 'Add Data');
+            $('#user_dialog').attr('title', 'Edit Data');
             $('#action').val('insert');
             $('#form_action').val('Insert');
             $('#user_form')[0].reset();
@@ -78,7 +78,7 @@
         //เพิ่ม event การ click ให้กับปุ่ม edit (มีหลายปุ่ม) [ให้กับทุก html element ที่มี class เป็น edit]
         $(document).on('click', '.edit', function () {
             var id = $(this).attr("id");
-            $('#form_action').val('Update'); //เปลี่ยนข้อความที่ปุ่มเป็น update เพื่อสื่อให้ user รู้
+            $('#form_action').val('แก้ไขข้อมูล'); //เปลี่ยนข้อความที่ปุ่มเป็น update เพื่อสื่อให้ user รู้
             $('#hidden_id').val(id); //กำหนดค่า id ซ่อนไว้ใน form ก่อน
             $('#action').val('update'); //เปลี่ยนโหมดเป็น update
             $('#user_dialog').dialog('open'); //เรียก user_dialog ขึ้นมา
@@ -199,7 +199,7 @@
     }
 </script>
 
-<div id="user_dialog" title="Add Data">
+<div id="user_dialog" title="Edit Data">
     <form method="post" id="user_form">
         <div class="form-group">
             <label>Enter Customer name</label>
@@ -250,7 +250,7 @@
 <div id="delete_confirmation" title="Confirmation">
     <p>Are you sure you want to Delete this data?</p>
 </div>
-<br />
+<br /><br />
 <body class="bg-dark">
     <header>
         <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -281,11 +281,10 @@
                 @Html.AntiForgeryToken()
                 <input type="text" id="customer_name" name="customer_name" value="" class="form-control mr-sm-2" placeholder="Search Name">
                 <button type="button" onclick="searchCustomers()" class="btn btn-outline-success my-2 my-sm-0">Search</button> &nbsp;
-                <button type="button" name="add" id="add" class="btn btn-success btn-xs">Add</button>
+               
             </form>
         </nav>
     </header>
 </body>
-<br />
 <br />
 <p style="color:white;" id="result"></p>
